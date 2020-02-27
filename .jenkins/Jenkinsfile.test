@@ -1,0 +1,30 @@
+GITHUB_CHECK_ID = "microsoft/ci-cd"
+GITHUB_CHECK_CREDS_ID = "test-user-creds"
+
+try {
+    githubNotify(context: GITHUB_CHECK_ID,
+                 description: "[Microsoft] The testing started",
+                 status: "PENDING",
+                 credentialsId: GITHUB_CHECK_CREDS_ID)
+
+    //
+    // Testing code here
+    //
+
+    println("Testing")
+    sleep(30000) // Wait 30 seconds
+
+    //
+    // End of testing code
+    //
+
+    githubNotify(context: GITHUB_CHECK_ID,
+                 description: "[Microsoft] The testing succeeded",
+                 status: "SUCCESS",
+                 credentialsId: GITHUB_CHECK_CREDS_ID)
+} catch(Exception e) {
+    githubNotify(context: GITHUB_CHECK_ID,
+                 description: "[Microsoft] The testing failed",
+                 status: "FAILURE",
+                 credentialsId: GITHUB_CHECK_CREDS_ID)
+}
