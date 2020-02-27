@@ -12,7 +12,7 @@ try {
     //
 
     println("Testing")
-    sleep(30000) // Wait 30 seconds
+    sleep(30) // Wait 30 seconds
 
     //
     // End of testing code
