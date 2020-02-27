@@ -1,0 +1,19 @@
+try {
+    githubNotify(status: "PENDING",
+                 description: "[Microsoft] The testing started",
+                 credentialsId: "test-user-creds")
+
+    //
+    // Testing code here
+    //
+
+    println("Testing")
+
+    githubNotify(status: "SUCCESS",
+                 description: "[Microsoft] The testing succeeded",
+                 credentialsId: "test-user-creds")
+} catch(Exception e) {
+    githubNotify(status: "FAILURE",
+                 description: "[Microsoft] The testing failed",
+                 credentialsId: "test-user-creds")
+}
